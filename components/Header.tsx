@@ -18,6 +18,7 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-4">
           <Link href="/pricing" className="text-sm text-text/70 hover:text-text">Pricing</Link>
+          <Link href="/transcripts" className="text-sm text-text/70 hover:text-text">Transcripts</Link>
           <Link href="/demo" className="text-sm text-text/70 hover:text-text">Demo</Link>
           <Link href="/downloads" className="text-sm text-text/70 hover:text-text">Downloads</Link>
           <CTAButton href="/downloads">Get fokus</CTAButton>
@@ -42,6 +43,7 @@ export function Header() {
           <div className="frosted p-4">
             <div className="flex flex-col gap-2">
               <Link href="/pricing" className="px-3 py-2 rounded-lg hover:bg-white/60 text-sm">Pricing</Link>
+              <Link href="/transcripts" className="px-3 py-2 rounded-lg hover:bg-white/60 text-sm">Transcripts</Link>
               <Link href="/demo" className="px-3 py-2 rounded-lg hover:bg-white/60 text-sm">Demo</Link>
               <Link href="/downloads" className="px-3 py-2 rounded-lg hover:bg-white/60 text-sm">Downloads</Link>
               <div className="pt-2">

@@ -40,7 +40,7 @@ export function PricingTable() {
         disabled={loading}
         className="mt-8 inline-flex items-center justify-center rounded-pill px-6 py-3 font-medium text-white bg-gradient-to-r from-primaryA to-primaryB shadow-pill hover:brightness-105 disabled:opacity-60"
       >
-        {loading ? "Redirecting..." : "Start subscription"}
+        {loading ? "Redirecting..." : "Subscribe"}
       </button>
       {msg && <p className="mt-3 text-sm text-red-600">{msg}</p>}
     </div>

@@ -5,7 +5,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import dynamic from "next/dynamic";
 
-// Dynamically load the overlay on the client only (no SSR)
 const OverlayClient = dynamic(() => import("@/components/OverlayClient"), { ssr: false });
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        {/* Global overlay hotkey (⌘K / Ctrl+K) */}
         <OverlayClient />
       </body>
     </html>

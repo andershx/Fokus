@@ -4,20 +4,16 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const secret = process.env.STRIPE_SECRET_KEY;
-  if (!secret) {
-    return NextResponse.json({ error: "Stripe not configured" }, { status: 400 });
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || req.headers.get("origin") || "http://localhost:3000";
+  const priceId = process.env.STRIPE_PRICE_ID;
+
+  if (!secret || !priceId) {
+    // Mock mode: simulate success so the UI flow works in demos
+    return NextResponse.json({ url: `${origin}/pricing?success=1&demo=1` }, { status: 200 });
   }
 
   const Stripe = (await (async (m: string) => import(m))("stripe") as any).default;
   const stripe = new Stripe(secret, { apiVersion: "2024-06-20" });
-
-  const body = await req.json().catch(() => ({}));
-  const priceId = body.priceId || process.env.STRIPE_PRICE_ID;
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || req.headers.get("origin") || "http://localhost:3000";
-
-  if (!priceId) {
-    return NextResponse.json({ error: "Missing priceId" }, { status: 400 });
-  }
 
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
