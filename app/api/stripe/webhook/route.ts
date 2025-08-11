@@ -5,17 +5,13 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const stripe = await getStripe();
-  if (!stripe) {
-    return new NextResponse("Stripe not configured", { status: 400 });
-  }
+  if (!stripe) return new NextResponse("Stripe not configured", { status: 400 });
 
   const sig = req.headers.get("stripe-signature");
   const buf = Buffer.from(await req.arrayBuffer());
-
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!secret || !sig) {
-    return new NextResponse("Missing webhook secret or signature", { status: 400 });
-  }
+
+  if (!secret || !sig) return new NextResponse("Missing webhook secret or signature", { status: 400 });
 
   let event: any;
   try {
@@ -29,12 +25,11 @@ export async function POST(req: Request) {
     case "customer.subscription.created":
     case "customer.subscription.updated":
     case "customer.subscription.deleted":
-      // handle subscription state
+      // handle sub status
       break;
     default:
       break;
   }
-
   return new NextResponse("ok", { status: 200 });
 }
 

@@ -42,7 +42,7 @@ export default function DemoPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-4xl font-bold mb-4">Assistant Demo</h1>
-      <p className="text-text/70 mb-6">This simulates the invisible overlay (for the web preview). Use ⌘K / Ctrl+K to toggle.</p>
+      <p className="text-text/70 mb-6">This simulates the invisible overlay (web preview). Use ⌘K / Ctrl+K to toggle.</p>
 
       {open && (
         <div className="fixed inset-x-0 top-16 mx-auto max-w-2xl z-50 frosted p-4 border border-white/60">

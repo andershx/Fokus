@@ -4,13 +4,13 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const { prompt, context } = await req.json().catch(() => ({ prompt: "", context: "" }));
-
   const apiKey = process.env.OPENAI_API_KEY;
+
   if (!apiKey) {
     const mock = `
 • Key point captured.
-• Possible objection: ask clarifying question.
-• Quick fact: The average response time is under 200ms. 
+• Possible objection: ask a clarifying question.
+• Quick fact: The average response time is under 200ms.
 `;
     return NextResponse.json({ text: mock.trim() });
   }
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         model: "gpt-4o-mini",
         messages: [
-          { role: "system", content: "You are a real-time call aide. Be concise, show bullets." },
+          { role: "system", content: "You are a real-time call aide. Be concise, show 3–5 bullets." },
           { role: "user", content: `Prompt: ${prompt}\nContext: ${context || "N/A"}` }
         ]
       })
