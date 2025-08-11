@@ -25,13 +25,15 @@ export function PricingTable() {
 
   return (
     <div className="rounded-2xl border border-border bg-white/60 p-8 shadow-soft">
-      <h2 className="text-3xl font-semibold">Fokus Pro</h2>
+      <div className="inline-flex items-center rounded-pill px-3 py-1 text-xs border border-border bg-white/80">Most popular</div>
+      <h2 className="text-3xl font-semibold mt-3">Fokus Pro</h2>
       <p className="mt-2 text-text/70">Real-time suggestions, summaries, and more.</p>
       <div className="mt-6 text-4xl font-bold">$19<span className="text-xl">/mo</span></div>
       <ul className="mt-6 space-y-2 text-text/80">
         <li>• Real-time cues during calls</li>
         <li>• Summaries & note export</li>
         <li>• Priority responses</li>
+        <li>• Manage via Billing Portal</li>
       </ul>
       <button
         onClick={checkout}
