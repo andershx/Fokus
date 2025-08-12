@@ -14,8 +14,6 @@ export function Header() {
           <span className="sr-only">fokus</span>
           <Logo wordmark className="hidden md:block w-40 h-auto" />
         </Link>
-
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-4">
           <Link href="/pricing" className="text-sm text-text/70 hover:text-text">Pricing</Link>
           <Link href="/transcripts" className="text-sm text-text/70 hover:text-text">Transcripts</Link>
@@ -23,21 +21,14 @@ export function Header() {
           <Link href="/downloads" className="text-sm text-text/70 hover:text-text">Downloads</Link>
           <CTAButton href="/downloads">Get fokus</CTAButton>
         </nav>
-
-        {/* Mobile hamburger */}
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden relative inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white/60"
-        >
+        <button aria-label="Menu" onClick={() => setOpen(v => !v)}
+          className="md:hidden relative inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-white/60">
           <span className="sr-only">Toggle menu</span>
           <div className="w-5 h-0.5 bg-text/80 rounded absolute top-[11px]" />
           <div className="w-5 h-0.5 bg-text/80 rounded" />
           <div className="w-5 h-0.5 bg-text/80 rounded absolute bottom-[11px]" />
         </button>
       </div>
-
-      {/* Mobile menu panel */}
       {open && (
         <div className="md:hidden px-4 pb-4">
           <div className="frosted p-4">
